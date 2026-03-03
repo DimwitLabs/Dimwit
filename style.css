@@ -105,6 +105,11 @@ header {
   border-bottom: 1px solid transparent;
 }
 
+.header-nav a img {
+  width: 1rem;
+  rotate: -15deg;
+}
+
 .header-nav a:hover {
   border-bottom: 1px solid var(--ink-faint);
 }
