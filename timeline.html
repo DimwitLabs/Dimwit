@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timeline | Dimwit</title>
+  <meta name="description" content="A timeline of releases and milestones across all Dimwit projects.">
+  <meta name="keywords" content="Dimwit, timeline, releases, Ode, Prosaic, changelog">
+  <meta name="author" content="Deepansh Khurana">
+  <meta name="robots" content="index, follow">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Timeline | Dimwit">
+  <meta property="og:description" content="A timeline of releases and milestones across all Dimwit projects.">
+  <meta property="og:image" content="svg/og-image.svg">
+  <meta property="og:url" content="https://dimwit.me/timeline">
+  <meta property="og:site_name" content="Dimwit">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Timeline | Dimwit">
+  <meta name="twitter:description" content="A timeline of releases and milestones across all Dimwit projects.">
+  <meta name="twitter:image" content="svg/og-image.svg">
+  
+  <link rel="canonical" href="https://dimwit.me/timeline">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="svg/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <main>
+    <header>
+      <p class="back-link"><a href="index.html">← Back to Dimwit</a></p>
+      <h1>
+        <span class="annotated">
+          Timeline
+          <svg class="underline-scribble" viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M0 8 Q 50 2, 100 8 T 200 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </span>
+      </h1>
+      <p class="tagline">Releases and milestones.</p>
+    </header>
+
+    <img src="svg/divider.svg" class="doodle-divider" alt="">
+
+    <section class="timeline-section">
+      <div id="timeline" class="timeline">
+        <div class="timeline-loading">
+          <img src="svg/icons/clock.svg" class="doodle-icon rotate-n10 timeline-spinner" alt="">
+          <p>Fetching releases...</p>
+        </div>
+      </div>
+    </section>
+
+    <img src="svg/divider-alt.svg" class="doodle-divider" alt="">
+
+    <footer class="manifesto-footer">
+      <strong><p class="footer-small">Every dot is a step forward.</p></strong>
+      <p class="back-home"><a href="index.html">← Back to the lab</a></p>
+    </footer>
+  </main>
+
+  <script>
+    const FEEDS = [
+      {
+        apiUrl: 'https://api.github.com/repos/DimwitLabs/ode/releases?per_page=100',
+        project: 'Ode',
+        slug: 'ode',
+        color: 'var(--ink)',
+        repoUrl: 'https://github.com/DimwitLabs/ode'
+      },
+      {
+        apiUrl: 'https://api.github.com/repos/DimwitLabs/Prosaic/releases?per_page=100',
+        project: 'Prosaic',
+        slug: 'prosaic',
+        color: 'var(--green)',
+        repoUrl: 'https://github.com/DimwitLabs/Prosaic'
+      }
+    ];
+
+    const MILESTONES = [
+      {
+        date: new Date('2026-02-24T00:00:00Z'),
+        project: 'Prosaic',
+        slug: 'prosaic',
+        type: 'milestone',
+        title: '',
+        icon: 'svg/icons/producthunt-logo.svg',
+        content: 'Prosaic featured on <a href="https://www.producthunt.com/products/prosaic" target="_blank" rel="noopener">Product Hunt</a>.'
+      },
+      {
+        date: new Date('2026-03-06T00:00:00Z'),
+        project: 'Ode',
+        slug: 'ode',
+        type: 'milestone',
+        title: '',
+        icon: 'svg/icons/producthunt-logo.svg',
+        content: 'Ode launched on <a href="https://www.producthunt.com/products/ode-6" target="_blank" rel="noopener">Product Hunt</a>.'
+      },
+      {
+        date: new Date('2026-02-28T00:00:00Z'),
+        project: 'Dimwit',
+        slug: 'dimwit',
+        type: 'milestone',
+        title: '',
+        icon: 'svg/icons/rocket.svg',
+        content: '<a href="https://dimwit.me" target="_blank" rel="noopener">Dimwit Labs</a> launched.'
+      },
+      {
+        date: new Date('2025-12-01T00:00:00Z'),
+        project: 'Ode',
+        slug: 'ode',
+        type: 'milestone',
+        title: '',
+        icon: 'svg/icons/fire.svg',
+        content: 'Ode v1.2.0 went mini-viral on <a href="https://www.reddit.com/r/selfhosted/comments/1paua8a/ode_v120_theming_engine_presets_defaults_handling/" target="_blank" rel="noopener">r/selfhosted</a>.'
+      }
+    ];
+
+    function parseApiReleases(releases, feedConfig) {
+      return releases
+        .filter(r => !r.draft && !r.prerelease)
+        .filter(r => {
+          const body = r.body || '';
+          return /^###?\s/m.test(body);
+        })
+        .map(r => ({
+          date: new Date(r.published_at),
+          project: feedConfig.project,
+          slug: feedConfig.slug,
+          type: 'release',
+          title: r.name || r.tag_name,
+          url: r.html_url,
+          content: r.body || '',
+          color: feedConfig.color
+        }));
+    }
+
+    function formatDate(date) {
+      return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+      });
+    }
+
+    function summariseContent(markdown) {
+      const lines = markdown.split('\n');
+      const sections = [];
+
+      for (let i = 0; i < lines.length; i++) {
+        const match = lines[i].match(/^###?\s+(.+)/);
+        if (match) {
+          const text = match[1].replace(/[*_`]/g, '').trim();
+          let count = 0;
+          for (let j = i + 1; j < lines.length; j++) {
+            if (/^###?\s/.test(lines[j])) break;
+            if (/^\s*[-*]\s/.test(lines[j])) count++;
+          }
+          sections.push(count > 0 ? `${text} (${count})` : text);
+        }
+      }
+
+      if (sections.length > 0) return sections.join(' · ');
+
+      const plain = markdown.replace(/[#*_`\[\]()>]/g, '').trim();
+      return plain.length > 120 ? plain.substring(0, 120) + '…' : plain;
+    }
+
+    function renderTimeline(items) {
+      const timeline = document.getElementById('timeline');
+
+      if (items.length === 0) {
+        timeline.innerHTML = '<p class="timeline-empty">No updates found.</p>';
+        return;
+      }
+
+      const grouped = {};
+      items.forEach(item => {
+        const key = item.date.toISOString().split('T')[0];
+        if (!grouped[key]) grouped[key] = [];
+        grouped[key].push(item);
+      });
+
+      const sortedDates = Object.keys(grouped).sort((a, b) => b.localeCompare(a));
+
+      let html = '';
+      let entryIndex = 0;
+      sortedDates.forEach(dateKey => {
+        const dateItems = grouped[dateKey];
+        const dateLabel = formatDate(new Date(dateKey + 'T12:00:00Z'));
+
+        html += `<div class="timeline-date-group">`;
+        html += `<div class="timeline-date-label"><span>${dateLabel}</span></div>`;
+
+        dateItems.forEach(item => {
+          const isMilestone = item.type === 'milestone';
+          const dotClass = isMilestone ? 'timeline-dot milestone' : 'timeline-dot';
+          const dotAreaClass = isMilestone ? 'timeline-dot-area milestone-area' : 'timeline-dot-area';
+          const side = entryIndex % 2 === 0 ? 'timeline-left' : 'timeline-right';
+          const projectClass = `timeline-project-${item.slug}`;
+          const summary = isMilestone ? item.content : summariseContent(item.content);
+
+          html += `
+            <div class="timeline-entry ${side} ${projectClass}" data-type="${item.type}" data-project="${item.slug}">
+              <div class="${dotAreaClass}">
+                <span class="${dotClass}"></span>
+              </div>
+              <div class="timeline-content">
+                <div class="timeline-entry-header">
+                  ${isMilestone ? `<img src="${item.icon}" class="timeline-milestone-icon" alt="">` : ''}
+                  <span class="timeline-project-name ${projectClass}">${item.project}</span>
+                  ${isMilestone ? `<span class="timeline-version">${item.title}</span>` : `<a href="${item.url}" class="timeline-version" target="_blank" rel="noopener">${item.title}</a>`}
+                </div>
+                <p class="timeline-summary">${summary}</p>
+              </div>
+            </div>`;
+          entryIndex++;
+        });
+
+        html += `</div>`;
+      });
+
+      timeline.innerHTML = html;
+    }
+
+    async function fetchReleases(feedConfig) {
+      try {
+        const res = await fetch(feedConfig.apiUrl);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const releases = await res.json();
+        return parseApiReleases(releases, feedConfig);
+      } catch (err) {
+        console.warn(`Failed to fetch ${feedConfig.project} releases:`, err);
+        return [];
+      }
+    }
+
+    async function init() {
+      const results = await Promise.all(FEEDS.map(fetchReleases));
+      const allItems = results.flat().concat(MILESTONES);
+
+      allItems.sort((a, b) => b.date - a.date);
+
+      renderTimeline(allItems);
+    }
+
+    init();
+  </script>
+</body>
+</html>
