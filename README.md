@@ -1,5 +1,7 @@
 # Dimwit
 
+[![AI-DECLARATION: pair](https://img.shields.io/badge/䷼%20AI--DECLARATION-pair-ffedd5?labelColor=ffedd5)](https://ai-declaration.md)
+
 Homepage for the one-person software lab. Visit [dimwit.me](https://dimwit.me) to see what's cooking and how it looks.
 
 ## Thanks
