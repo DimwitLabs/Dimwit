@@ -1,0 +1,118 @@
+{
+  "$schema": "https://fundingjson.org/schema/v1.1.0.json",
+  "version": "v1.1.0",
+  "entity": {
+    "type": "individual",
+    "role": "owner",
+    "name": "Deepansh Khurana",
+    "email": "chief@dimwit.me",
+    "phone": "+919205216561",
+    "description": "A one-person software lab building tools that people actually want to use. The name comes from the knuckleheadedness of believing one person can be an entire software lab by themselves.",
+    "webpageUrl": {
+      "url": "https://dimwit.me"
+    }
+  },
+  "projects": [
+    {
+      "guid": "ode",
+      "name": "Ode",
+      "description": "An ode to those who love the craft, an ode to the old internet, an ode to a time before numbers and figures dominated writing, an ode to a time where readers remembered their favourite writers, and an ode to the hope that all of it is still present, somewhere. Ode is for writers who want to publish in an aesthetically pleasing website, who ignore the bells and whistles of the modern internet, and who want to create a better experience for their readers. It is opinionated, minimal, and easy to use.",
+      "webpageUrl": {
+        "url": "https://ode.dimwit.me"
+      },
+      "repositoryUrl": {
+        "url": "https://github.com/dimwitlabs/ode",
+        "wellKnown": "https://github.com/dimwitlabs/ode/blob/main/.well-known/funding-manifest-urls"
+      },
+      "licenses": ["spdx:MIT"],
+      "tags": ["writing", "publishing", "markdown", "web-development", "minimalist"]
+    },
+    {
+      "guid": "prosaic",
+      "name": "Prosaic",
+      "description": "A writer-first terminal writing app built with Python and Textual. Access your writing from anywhere, on any device. Perfect for daily pieces, notes, and books. Start each day quickly, get your frontmatter ready, jot down ideas, and work on longer projects. A TUI that does the job without the bloat, accessible from a terminal app on iPad, Windows, or Mac.",
+      "webpageUrl": {
+        "url": "https://prosaic.dimwit.me"
+      },
+      "repositoryUrl": {
+        "url": "https://github.com/dimwitlabs/prosaic",
+        "wellKnown": "https://github.com/dimwitlabs/prosaic/blob/main/.well-known/funding-manifest-urls"
+      },
+      "licenses": ["spdx:MIT"],
+      "tags": ["writing", "terminal", "python", "markdown", "productivity", "developer-tools"]
+    },
+    {
+      "guid": "ai-declaration",
+      "name": "AI-DECLARATION.md",
+      "description": "AI-generated code is a reality of our time and it is both a blessing and a curse. The problem is not the code in itself but transparency and clarity. This specification invites everyone to include a structured AI-DECLARATION.md file in their repositories to make AI usage crystal clear and, more importantly, to make it a widespread convention to do so. When you declare what parts were generated, skeptics can verify those parts, and creators can showcase their skills with both code and planning.",
+      "webpageUrl": {
+        "url": "https://ai-declaration.md",
+        "wellKnown": "https://ai-declaration.md/.well-known/funding-manifest-urls"
+      },
+      "repositoryUrl": {
+        "url": "https://github.com/dimwitlabs/ai-declaration.md",
+        "wellKnown": "https://github.com/dimwitlabs/ai-declaration.md/blob/main/.well-known/funding-manifest-urls"
+      },
+      "licenses": ["spdx:MIT"],
+      "tags": ["artificial-intelligence", "transparency", "documentation", "specification", "developer-tools"]
+    }
+  ],
+  "funding": {
+    "channels": [
+      {
+        "guid": "github-sponsors",
+        "type": "payment-provider",
+        "address": "https://github.com/sponsors/deepanshkhurana",
+        "description": "Support through GitHub Sponsors with flexible monthly or one-time contributions."
+      },
+      {
+        "guid": "bank-transfer",
+        "type": "bank",
+        "address": "",
+        "description": "Direct bank transfers accepted. Please email for account details."
+      }
+    ],
+    "plans": [
+      {
+        "guid": "ode-monthly",
+        "status": "active",
+        "name": "Support Ode",
+        "description": "Monthly support for Ode development to keep this writing environment alive and evolving.",
+        "amount": 1000,
+        "currency": "USD",
+        "frequency": "monthly",
+        "channels": ["github-sponsors", "bank-transfer"]
+      },
+      {
+        "guid": "prosaic-monthly",
+        "status": "active",
+        "name": "Support Prosaic",
+        "description": "Monthly support for Prosaic development to build better tools for thinkers and writers.",
+        "amount": 1000,
+        "currency": "USD",
+        "frequency": "monthly",
+        "channels": ["github-sponsors", "bank-transfer"]
+      },
+      {
+        "guid": "ai-declaration-monthly",
+        "status": "active",
+        "name": "Support AI-DECLARATION.md",
+        "description": "Monthly support for AI-DECLARATION.md to promote transparency in AI-assisted work.",
+        "amount": 1000,
+        "currency": "USD",
+        "frequency": "monthly",
+        "channels": ["github-sponsors", "bank-transfer"]
+      },
+      {
+        "guid": "general-monthly",
+        "status": "active",
+        "name": "General monthly support",
+        "description": "Monthly support for all current and upcoming Dimwit projects to sustain ongoing development and maintenance across Ode, Prosaic, and AI-DECLARATION.md.",
+        "amount": 10000,
+        "currency": "USD",
+        "frequency": "monthly",
+        "channels": ["github-sponsors", "bank-transfer"]
+      }
+    ]
+  }
+}
