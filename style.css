@@ -870,18 +870,6 @@ footer {
   letter-spacing: 0.02em;
 }
 
-.timeline-project-ode {
-  color: var(--ink);
-}
-
-.timeline-project-prosaic {
-  color: var(--green);
-}
-
-.timeline-project-dimwit {
-  color: var(--ink);
-}
-
 .timeline-version {
   font-size: 0.78rem;
   color: var(--ink-light);
