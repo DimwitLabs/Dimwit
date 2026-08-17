@@ -55,6 +55,20 @@
       },
       "licenses": ["spdx:MIT"],
       "tags": ["artificial-intelligence", "transparency", "documentation", "specification", "developer-tools"]
+    },
+    {
+      "guid": "parcourse",
+      "name": "Parcourse",
+      "description": "Learning from YouTube is mostly passive: you watch, you nod, you forget. Parcourse turns a video URL into a structured course. It pulls the transcript, checks the video is actually educational, then generates sections, summaries, multiple-choice questions and theory questions. Multiple choice is scored by match; theory answers are graded against a reference answer for accuracy, completeness and relevance, with written feedback. Concepts from every course feed a personal knowledge graph of fields, topics and skills, with mastery tracked per user. Self-hostable, so your learning history stays yours.",
+      "webpageUrl": {
+        "url": "https://parcourse.dimwit.me"
+      },
+      "repositoryUrl": {
+        "url": "https://github.com/dimwitlabs/parcourse",
+        "wellKnown": "https://github.com/dimwitlabs/parcourse/blob/main/.well-known/funding-manifest-urls"
+      },
+      "licenses": ["spdx:Apache-2.0"],
+      "tags": ["education", "learning", "artificial-intelligence", "python", "react", "self-hosted", "video"]
     }
   ],
   "funding": {
@@ -104,10 +118,20 @@
         "channels": ["github-sponsors", "bank-transfer"]
       },
       {
+        "guid": "parcourse-monthly",
+        "status": "active",
+        "name": "Support Parcourse",
+        "description": "Monthly support for Parcourse development to keep turning videos into real, structured learning.",
+        "amount": 1000,
+        "currency": "USD",
+        "frequency": "monthly",
+        "channels": ["github-sponsors", "bank-transfer"]
+      },
+      {
         "guid": "general-monthly",
         "status": "active",
         "name": "General monthly support",
-        "description": "Monthly support for all current and upcoming Dimwit projects to sustain ongoing development and maintenance across Ode, Prosaic, and AI-DECLARATION.md.",
+        "description": "Monthly support for all current and upcoming Dimwit projects to sustain ongoing development and maintenance across Ode, Prosaic, AI-DECLARATION.md, and Parcourse.",
         "amount": 10000,
         "currency": "USD",
         "frequency": "monthly",
