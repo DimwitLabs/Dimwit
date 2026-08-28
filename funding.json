@@ -67,7 +67,7 @@
         "url": "https://github.com/dimwitlabs/parcourse",
         "wellKnown": "https://github.com/dimwitlabs/parcourse/blob/main/.well-known/funding-manifest-urls"
       },
-      "licenses": ["spdx:Apache-2.0"],
+      "licenses": ["spdx:AGPL-3.0-only"],
       "tags": ["education", "learning", "artificial-intelligence", "python", "react", "self-hosted", "video"]
     }
   ],
