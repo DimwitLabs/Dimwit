@@ -69,6 +69,34 @@
       },
       "licenses": ["spdx:AGPL-3.0-only"],
       "tags": ["education", "learning", "artificial-intelligence", "python", "react", "self-hosted", "video"]
+    },
+    {
+      "guid": "oyobyok",
+      "name": "OYOBYOK",
+      "description": "Own Your Own Bring Your Own Keyboard. OYOBYOK is alternative firmware for the BYOK writing device, written entirely in C on ESP-IDF. It keeps the parts that make the device lovely to write on, the paper-like screen, the five buttons, the Bluetooth keyboard and the SD card full of plain text files, and replaces the cloud with things you already own: a Git repository over SSH, or an SFTP server in your house. Your writing goes where you say it goes, signed with your key, and nowhere else. Everything is native C with no scripting layer and no runtime, and the whole interface is one state machine that also compiles on a laptop. Not affiliated with, endorsed by or supported by BYOK; flashing replaces the stock firmware and is the owner\u0027s decision.",
+      "webpageUrl": {
+        "url": "https://oyobyok.dimwit.me"
+      },
+      "repositoryUrl": {
+        "url": "https://github.com/dimwitlabs/oyobyok",
+        "wellKnown": "https://github.com/dimwitlabs/oyobyok/blob/main/.well-known/funding-manifest-urls"
+      },
+      "licenses": ["spdx:MIT"],
+      "tags": ["firmware", "embedded", "hardware", "esp32", "writing", "self-hosted", "git", "sftp"]
+    },
+    {
+      "guid": "tuck",
+      "name": "Tuck",
+      "description": "Tuck is a small, self-hosted vault for SSH keys, hosts and files. Everything is encrypted in the browser before it reaches the server, so an instance only ever holds ciphertext and whoever runs it cannot read what is inside. Unlocking takes a password and then three questions you wrote yourself, with each answer forming part of the key, and there is deliberately no recovery path. One download sets up ~/.ssh on any machine, so moving to a new laptop is a single step rather than an afternoon of copying keys around. Each instance keeps one account and sign-up closes after the first, which makes it a personal vault rather than a service to sign up for.",
+      "webpageUrl": {
+        "url": "https://tuck.dimwit.me"
+      },
+      "repositoryUrl": {
+        "url": "https://github.com/dimwitlabs/tuck",
+        "wellKnown": "https://github.com/dimwitlabs/tuck/blob/main/.well-known/funding-manifest-urls"
+      },
+      "licenses": ["spdx:MIT"],
+      "tags": ["security", "secrets-management", "ssh", "encryption", "self-hosted", "homelab", "go", "react"]
     }
   ],
   "funding": {
@@ -128,10 +156,30 @@
         "channels": ["github-sponsors", "bank-transfer"]
       },
       {
+        "guid": "oyobyok-monthly",
+        "status": "active",
+        "name": "Support OYOBYOK",
+        "description": "Monthly support for OYOBYOK development to keep the writing device yours, offline and unlocked.",
+        "amount": 1000,
+        "currency": "USD",
+        "frequency": "monthly",
+        "channels": ["github-sponsors", "bank-transfer"]
+      },
+      {
+        "guid": "tuck-monthly",
+        "status": "active",
+        "name": "Support Tuck",
+        "description": "Monthly support for Tuck development to keep your keys encrypted, portable and yours.",
+        "amount": 1000,
+        "currency": "USD",
+        "frequency": "monthly",
+        "channels": ["github-sponsors", "bank-transfer"]
+      },
+      {
         "guid": "general-monthly",
         "status": "active",
         "name": "General monthly support",
-        "description": "Monthly support for all current and upcoming Dimwit projects to sustain ongoing development and maintenance across Ode, Prosaic, AI-DECLARATION.md, and Parcourse.",
+        "description": "Monthly support for all current and upcoming Dimwit projects to sustain ongoing development and maintenance across Ode, Prosaic, AI-DECLARATION.md, Parcourse, OYOBYOK, and Tuck.",
         "amount": 10000,
         "currency": "USD",
         "frequency": "monthly",
