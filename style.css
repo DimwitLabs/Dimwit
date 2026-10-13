@@ -3,6 +3,7 @@
   --ink: #1a3a6e;
   --ink-light: #3d5a8a;
   --ink-faint: #8fa4c4;
+  --ink-muted: #59739c;
   --paper: #fefefe;
   --green: #2d5a3d;
   --amber: #8b6914;
@@ -16,7 +17,6 @@
 
 html {
   font-size: 18px;
-  overflow-x: hidden;
 }
 
 body {
@@ -25,7 +25,6 @@ body {
   color: var(--ink);
   line-height: 1.7;
   min-height: 100vh;
-  overflow-x: hidden;
 }
 
 main {
@@ -97,7 +96,9 @@ header {
   margin-bottom: 1rem;
   font-size: 0.85rem;
   display: flex;
-  gap: 1.2rem;
+  flex-wrap: wrap;
+  flex-wrap: balance;
+  gap: 0.4rem 1.2rem;
 }
 
 .header-nav a {
@@ -254,13 +255,6 @@ h2 .doodle-icon {
   margin-left: 0.3rem;
 }
 
-.link-icon {
-  width: 14px;
-  height: 14px;
-  opacity: 0.7;
-  vertical-align: middle;
-}
-
 .framework-icon {
   width: 18px;
   height: 18px;
@@ -297,20 +291,20 @@ h2 .doodle-icon {
 .scribble-note {
   font-size: 0.8rem;
   font-style: italic;
-  color: var(--ink-faint);
+  color: var(--ink-muted);
   margin-left: 0.2rem;
 }
 
 .note-inline {
   font-size: 0.85rem;
   font-weight: 400;
-  color: var(--ink-faint);
+  color: var(--ink-muted);
   font-style: italic;
 }
 
 .note-inline a {
-  color: var(--ink-faint) !important;
-  border-bottom-color: var(--ink-faint) !important;
+  color: var(--ink-muted) !important;
+  border-bottom-color: var(--ink-muted) !important;
 }
 
 .project-list,
@@ -353,22 +347,6 @@ h2 .doodle-icon {
 
 .project-header.icon-last {
   flex-direction: row;
-}
-
-.icon-react,
-.icon-python,
-.icon-flutter,
-.icon-go {
-  width: 18px;
-  height: 18px;
-  color: var(--ink-light);
-  opacity: 0.6;
-  flex-shrink: 0;
-}
-
-.icon-go {
-  width: 22px;
-  height: 14px;
 }
 
 .project-tags {
@@ -414,7 +392,7 @@ h2 .doodle-icon {
 }
 
 .tag-category {
-  color: var(--ink-faint);
+  color: var(--ink-muted);
   border: 1px dotted var(--ink-faint);
   font-style: italic;
 }
@@ -447,74 +425,10 @@ h2 .doodle-icon {
   border-bottom: 1px solid var(--ink);
 }
 
-.icon-github,
-.icon-ph {
-  width: 14px;
-  height: 14px;
-  color: var(--ink);
-  opacity: 0.7;
-}
-
 .status {
   font-size: 0.8rem;
-  color: var(--ink-faint);
+  color: var(--ink-muted);
   font-style: italic;
-}
-
-.margin-note {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  font-size: 0.68rem;
-  color: var(--ink-faint);
-  font-style: italic;
-  white-space: nowrap;
-  z-index: 10;
-}
-
-.note-right {
-  right: -120px;
-  top: 50%;
-  transform-origin: left center;
-}
-
-.note-left {
-  left: -115px;
-  top: 50%;
-  transform-origin: right center;
-}
-
-.note-text {
-  color: var(--ink-faint);
-}
-
-.arrow-curve,
-.arrow-simple {
-  width: 38px;
-  height: 24px;
-  color: var(--ink-faint);
-  flex-shrink: 0;
-}
-
-.arrow-simple {
-  width: 28px;
-  height: 10px;
-}
-
-.wavy-text {
-  position: relative;
-  display: inline-block;
-}
-
-.wavy-underline {
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  width: 100%;
-  height: 8px;
-  color: var(--ink-faint);
-  opacity: 0.5;
 }
 
 .about {
@@ -558,39 +472,6 @@ h2 .doodle-icon {
   color: var(--ink) !important;
 }
 
-.bio-precommit {
-  font-size: 0.8rem;
-  color: var(--ink-faint);
-  font-style: italic;
-  margin-top: 0.3rem;
-}
-
-.bio-precommit a {
-  color: var(--ink-faint) !important;
-}
-
-.bio-list {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.3rem 0.8rem;
-  color: var(--ink-faint);
-  margin-top: 1rem;
-}
-
-.bio-item {
-  font-style: italic;
-}
-
-.bio-1 { font-size: 0.85rem; }
-.bio-2 { font-size: 0.8rem; }
-.bio-3 { font-size: 0.75rem; }
-.bio-4 { font-size: 0.7rem; }
-.bio-5 { font-size: 0.65rem; }
-.bio-6 { font-size: 0.6rem; }
-.bio-7 { font-size: 0.55rem; }
-.bio-8 { font-size: 0.5rem; }
-
 footer {
 }
 
@@ -600,7 +481,7 @@ footer {
   height: auto;
   margin-left: auto;
   margin-bottom: 0.5rem;
-  margin-right: -3rem;
+  margin-right: -2.5rem;
 }
 
 .signature {
@@ -619,7 +500,7 @@ footer {
 
 .signature .email {
   font-size: 0.82rem;
-  color: var(--ink-faint);
+  color: var(--ink-muted);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
@@ -640,36 +521,20 @@ footer {
   border-bottom: 1px solid var(--ink);
 }
 
-.footer-squiggle-end {
-  display: block;
-  width: 60px;
-  height: 8px;
-  margin: 2rem auto 1rem;
-  color: var(--ink-faint);
-  opacity: 0.4;
-}
-
 .footer-joke {
   text-align: right;
   font-size: 0.7rem;
-  color: var(--ink-faint);
+  color: var(--ink-muted);
   margin: 2rem 0 0 0;
 }
 
 .footer-joke a {
-  color: var(--ink-faint);
+  color: var(--ink-muted);
   border-bottom: none;
-  opacity: 0.6;
 }
 
 .footer-joke a:hover {
   opacity: 1;
-}
-
-@media (max-width: 1000px) {
-  .margin-note {
-    display: none;
-  }
 }
 
 @media (max-width: 700px) {
@@ -680,6 +545,10 @@ footer {
   main {
     padding: 2.5rem 1.5rem;
     max-width: 100%;
+  }
+
+  .signature-doodle {
+    margin-right: -1.5rem;
   }
   
   h1 {
@@ -697,10 +566,6 @@ footer {
     gap: 0.3rem;
   }
   
-  .bio-list {
-    flex-direction: column;
-    gap: 0.2rem;
-  }
 }
 
 .timeline-section {
@@ -728,7 +593,7 @@ footer {
 .timeline-loading {
   text-align: center;
   padding: 3rem 0;
-  color: var(--ink-faint);
+  color: var(--ink-muted);
   font-style: italic;
   position: relative;
 }
@@ -748,9 +613,16 @@ footer {
   animation: pulse 1.5s ease-in-out infinite;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .timeline-spinner {
+    animation: none;
+    opacity: 0.6;
+  }
+}
+
 .timeline-empty {
   text-align: center;
-  color: var(--ink-faint);
+  color: var(--ink-muted);
   font-style: italic;
   padding: 2rem 0;
   position: relative;
@@ -765,7 +637,7 @@ footer {
   position: relative;
   text-align: center;
   font-size: 0.72rem;
-  color: var(--ink-faint);
+  color: var(--ink-muted);
   letter-spacing: 0.04em;
   font-style: italic;
   padding: 0.6rem 0;
@@ -983,7 +855,4 @@ footer {
     opacity: 0.25;
   }
   
-  .margin-note {
-    display: none;
-  }
 }

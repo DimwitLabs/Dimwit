@@ -260,6 +260,19 @@
         }));
     }
 
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function safeUrl(value) {
+      return /^https?:\/\//i.test(value) ? value : '#';
+    }
+
     function formatDate(date) {
       return date.toLocaleDateString('en-US', {
         year: 'numeric',
@@ -323,7 +336,8 @@
           const dotAreaClass = isMilestone ? 'timeline-dot-area milestone-area' : 'timeline-dot-area';
           const side = entryIndex % 2 === 0 ? 'timeline-left' : 'timeline-right';
           const projectClass = `timeline-project-${item.slug}`;
-          const summary = isMilestone ? item.content : summariseContent(item.content);
+          const summary = isMilestone ? item.content : escapeHtml(summariseContent(item.content));
+          const title = escapeHtml(item.title);
 
           html += `
             <div class="timeline-entry ${side} ${projectClass}" data-type="${item.type}" data-project="${item.slug}">
@@ -334,7 +348,7 @@
                 <div class="timeline-entry-header">
                   ${isMilestone ? `<img src="${item.icon}" class="timeline-milestone-icon" alt="">` : ''}
                   <span class="timeline-project-name ${projectClass}">${item.project}</span>
-                  ${isMilestone ? `<span class="timeline-version">${item.title}</span>` : `<a href="${item.url}" class="timeline-version" target="_blank" rel="noopener">${item.title}</a>`}
+                  ${isMilestone ? `<span class="timeline-version">${title}</span>` : `<a href="${escapeHtml(safeUrl(item.url))}" class="timeline-version" target="_blank" rel="noopener">${title}</a>`}
                 </div>
                 <p class="timeline-summary">${summary}</p>
               </div>
