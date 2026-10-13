@@ -172,6 +172,88 @@ header {
   line-height: 1.9;
 }
 
+.legal-updated {
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  margin-bottom: 1rem;
+}
+
+.legal-nav a[aria-current="page"] {
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink-faint);
+}
+
+.legal .manifesto-point p + p,
+.legal .manifesto-point p + ul,
+.legal .manifesto-point ul + p,
+.legal .manifesto-point p + .legal-table,
+.legal .manifesto-point .legal-table + p {
+  margin-top: 0.8rem;
+}
+
+.legal .manifesto-point ul {
+  color: var(--ink-light);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  padding-left: 1.2rem;
+}
+
+.legal .manifesto-point li + li {
+  margin-top: 0.3rem;
+}
+
+.legal .manifesto-point strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.legal-table {
+  overflow-x: auto;
+}
+
+.legal-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  color: var(--ink-light);
+  line-height: 1.5;
+}
+
+.legal-table th,
+.legal-table td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.5rem 0.75rem 0.5rem 0;
+  border-bottom: 1px solid var(--ink-faint);
+}
+
+.legal-table th {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.2rem 1rem;
+  font-size: 0.7rem;
+  margin: 2rem 0 0 0;
+}
+
+.footer-legal a {
+  color: var(--ink-muted);
+  border-bottom: none;
+}
+
+.footer-legal a:hover {
+  color: var(--ink);
+}
+
+.footer-legal + .footer-joke {
+  margin-top: 0.4rem;
+}
+
 .manifesto-footer {
   text-align: center;
   padding: 1.5rem 0;
